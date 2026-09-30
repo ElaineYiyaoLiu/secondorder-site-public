@@ -29,6 +29,10 @@
     {
       "source": "/procedure",
       "destination": "/procedure/index.html"
+    },
+    {
+      "source": "/homology",
+      "destination": "/homology/index.html"
     }
   ]
 }
