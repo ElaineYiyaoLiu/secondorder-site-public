@@ -26,3 +26,15 @@
     try { history.replaceState(null, '', url); } catch {}
   }));
 })();
+
+(() => {
+  const formalSite = location.hostname === 'secondorder.tools' || location.hostname === 'www.secondorder.tools';
+  document.querySelectorAll('iframe[data-tool]').forEach(frame => {
+    const url = formalSite
+      ? 'https://' + frame.dataset.tool + '.secondorder.tools'
+      : frame.dataset.previewSrc;
+    frame.src = url;
+    const standalone = document.querySelector('a.standalone');
+    if (standalone) standalone.href = url;
+  });
+})();
