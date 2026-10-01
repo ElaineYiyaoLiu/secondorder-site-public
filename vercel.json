@@ -33,6 +33,10 @@
     {
       "source": "/homology",
       "destination": "/homology/index.html"
+    },
+    {
+      "source": "/stock",
+      "destination": "/stock/index.html"
     }
   ]
 }

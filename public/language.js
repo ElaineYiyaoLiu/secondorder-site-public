@@ -30,11 +30,13 @@
 (() => {
   const formalSite = location.hostname === 'secondorder.tools' || location.hostname === 'www.secondorder.tools';
   document.querySelectorAll('iframe[data-tool]').forEach(frame => {
-    const url = formalSite
+    const url = formalSite && frame.dataset.tool !== 'stock'
       ? 'https://' + frame.dataset.tool + '.secondorder.tools'
       : frame.dataset.previewSrc;
-    frame.src = url;
+    const target = new URL(url);if(frame.dataset.tool==='stock')target.searchParams.set('lang',document.documentElement.lang==='zh-CN'?'zh':'en');
+    frame.src = target.href;
     const standalone = document.querySelector('a.standalone');
-    if (standalone) standalone.href = url;
+    if (standalone) standalone.href = frame.dataset.tool==='stock'?target.href:url;
   });
 })();
+

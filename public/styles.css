@@ -2,3 +2,7 @@
 
 .brand small{display:block;margin-top:5px;font-size:10px;font-weight:400;letter-spacing:.12em;color:var(--muted)}
 .brand small:empty{display:none}
+
+
+.tool-wide{grid-column:1/-1;min-height:170px}.tool-wide .tool-detail>p{max-width:850px}@media(max-width:600px){.tool-wide{min-height:180px}}
+@media(max-width:600px){.workspace-nav{flex-wrap:wrap;gap:6px 13px}.workspace-nav .standalone{flex-basis:100%;margin-left:0}}
