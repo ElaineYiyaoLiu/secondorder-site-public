@@ -13,11 +13,8 @@
       : 'SecondOrder brings together tools for exploring scenarios, reading markets, and comparing legal procedures.';
     if (persist) { try { localStorage.setItem(key, lang); } catch {} }
   }
-  let saved;
-  try { saved = localStorage.getItem(key); } catch {}
   const requested = new URLSearchParams(location.search).get('lang');
-  const preferred = requested === 'zh' || requested === 'en' ? requested : saved;
-  apply(preferred === 'zh' || preferred === 'en' ? preferred : (navigator.language.toLowerCase().startsWith('zh') ? 'zh' : 'en'));
+  apply(requested === 'zh' ? 'zh' : 'en');
   buttons.forEach(button => button.addEventListener('click', () => {
     const lang = button.dataset.language;
     apply(lang, true);
