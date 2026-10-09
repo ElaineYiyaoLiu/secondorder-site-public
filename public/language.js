@@ -30,10 +30,10 @@
     const url = formalSite && frame.dataset.tool !== 'stock'
       ? 'https://' + frame.dataset.tool + '.secondorder.tools'
       : frame.dataset.previewSrc;
-    const target = new URL(url);if(frame.dataset.tool==='stock')target.searchParams.set('lang',document.documentElement.lang==='zh-CN'?'zh':'en');
+    const target = new URL(url);if(['stock','test'].includes(frame.dataset.tool))target.searchParams.set('lang',document.documentElement.lang==='zh-CN'?'zh':'en');
     frame.src = target.href;
     const standalone = document.querySelector('a.standalone');
-    if (standalone) standalone.href = frame.dataset.tool==='stock'?target.href:url;
+    if (standalone) standalone.href = ['stock','test'].includes(frame.dataset.tool)?target.href:url;
   });
 })();
 
