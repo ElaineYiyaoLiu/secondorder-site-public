@@ -17,3 +17,8 @@ header .brand.so-brand .so-brand-copy small:empty{display:none}
 
 /* Homology, Stock and Test are parallel entries. */
 .tools{grid-template-columns:repeat(3,minmax(0,1fr))}.tool{min-height:215px}.tool-detail>p{max-width:none}@media(max-width:760px){.tools{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:460px){.tools{grid-template-columns:1fr}.tool{min-height:170px}}
+
+/* Keep the construction status in the title's typography and allow narrow headers to wrap. */
+header .brand.so-brand{white-space:normal;min-width:0}
+header .brand.so-brand .so-brand-copy{white-space:normal;min-width:0;line-height:1.2}
+@media(max-width:640px){header,header.topbar{height:auto;flex-wrap:wrap;gap:10px}header .brand.so-brand{width:100%;max-width:100%}}
