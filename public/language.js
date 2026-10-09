@@ -27,7 +27,7 @@
 (() => {
   const formalSite = location.hostname === 'secondorder.tools' || location.hostname === 'www.secondorder.tools';
   document.querySelectorAll('iframe[data-tool]').forEach(frame => {
-    const url = formalSite && frame.dataset.tool !== 'stock'
+    const url = formalSite && !['stock','test'].includes(frame.dataset.tool)
       ? 'https://' + frame.dataset.tool + '.secondorder.tools'
       : frame.dataset.previewSrc;
     const target = new URL(url);if(['stock','test'].includes(frame.dataset.tool))target.searchParams.set('lang',document.documentElement.lang==='zh-CN'?'zh':'en');
